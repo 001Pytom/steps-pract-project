@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import messages from "./Messages";
-import Button from "./Button";
-import StepMsg from "./StepMsg";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -27,14 +25,23 @@ function App() {
             <div className={`${step >= 2 && "active"}`}>2</div>
             <div className={`${step >= 3 && "active"}`}>3</div>
           </div>
-          <StepMsg step={step}>{messages[step - 1]}</StepMsg>
+
+          <p className="message">
+            Step {step}: {messages[step - 1]}
+          </p>
           <div className="buttons">
-            <Button bgColor={"#7950f2"} textColor={"#fff"} onClick={handlePrev}>
-              <span>👈</span>Previous
-            </Button>
-            <Button bgColor={"#7950f2"} textColor={"#fff"} onClick={handleNext}>
-              Next <span>👉</span>
-            </Button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handlePrev}
+            >
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={handleNext}
+            >
+              Next
+            </button>
           </div>
         </div>
       )}
